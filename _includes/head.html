@@ -6,47 +6,7 @@
   <meta name="creator" content="Digital Transformation Agency">
   <meta name="type" content="Text">
   <meta name="modified" content="{{ page.date | date: "%b %-d, %Y" }}">
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="{{ site.title }}" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@{{ site.twitter }}" />
-
-  {% if page.title %}
-  <title>{{ page.title }} | {{ site.title }}</title>
-  <meta property="og:title" content="{{ page.title | xml_escape }}" />
-  <meta name="twitter:title" content="{{ page.title | xml_escape }}" />
-{% else %}
-  <title>{{ site.title }}</title>
-  <meta property="og:title" content="{{ site.title | xml_escape }}" />
-  <meta name="twitter:title" content="{{ site.title | xml_escape }}" />
-{% endif %}
-
 {% assign url= page.url | prepend: site.url %}
-  <link rel="canonical" href="{{ url }}">
-  <meta property="og:url" content="{{ url }}" />
-
-{% if page.hero-image-alt %}
-  {% assign social-image-url = page.hero-image | asset_path | prepend: site.url %}
-{% elsif page.hero-image %}
-  {% assign social-image-url = page.hero-image | prepend: site.url %}
-{% else %}
-  {% assign social-image-url = 'dta-unfurl' | asset_path | prepend: site.url %}
-{% endif %}
-  <meta property="og:image" content="{{ social-image-url }}" />
-  <meta name="twitter:image" content="{{ social-image-url }}" />
-
-{% if page.searchexcerpt %}
-  {% assign description = page.searchexcerpt | markdownify | strip_html %}
-{% elsif page.url == "/" %}
-  {% assign description = site.description %}
-{% endif %}
-{% if description %}
-  <meta name="description" content="{{ description | xml_escape }}">
-  <meta property="og:description" content="{{ description | xml_escape }}" />
-  <meta name="twitter:description" content="{{ description | truncate:160 | xml_escape }}" />
-{% endif %}
-
-
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
 
   {% include google_fonts.html %}
@@ -64,26 +24,6 @@
   })(document.documentElement)
   </script>
 
-  <!-- Schema for Google knowledge graph -->
-  <script type="application/ld+json">
-{
-  "@context" : "http://schema.org",
-  "@type" : "Organization",
-  "name" : "Digital Transformation Agency",
-  "url" : "https://www.dta.gov.au",
-  "logo": "https://www.dta.gov.au/images/dta-snippet-logo.png",
-  "sameAs" : [
-    "https://twitter.com/{{ site.twitter }}",
-    "https://www.linkedin.com/company/digital-transformation-office",
-    "https://www.youtube.com/channel/UCmDkFN3UlK2wSKDQQhd-Y-A",
-    "http://www.slideshare.net/DTO-slides"
-  ],
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://www.dta.gov.au/search/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-  </script>
+  {% seo %}
 
 </head>
