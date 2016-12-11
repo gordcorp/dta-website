@@ -36,7 +36,10 @@
 
     <script type="text/javascript" src="{% asset_path ui-kit.js %}"></script>
 
+{% if page.url == "/search/" %}
+    <script type="text/javascript" src="{% asset_path search.js %}"></script>
+{% else %}
     <script async type="text/javascript" src="{% asset_path main.js %}"></script>
-
+{% endif %}
   </body>
 </html>

@@ -43,7 +43,7 @@ main() {
       cf push -f manifest-develop.yml
       ;;
     *)
-      basicauth
+      # basicauth
       appname="${CIRCLE_PROJECT_REPONAME}-${GITBRANCH}"
       cf api $CF_STAGING_API
       cf auth $CF_USER $CF_PASSWORD

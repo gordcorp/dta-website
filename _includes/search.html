@@ -1,16 +1,16 @@
 <div>
-    <form id="search-form" action="/search/" method="get">
-        <label for="search-query">Search dta.gov.au</label>
-        <input name="q" id="search-query" type="text" autocomplete="on"/>
-        <input type="submit" value="Search">
-    </form>
+  <form id="search-form" action="/search/" method="get">
+    <label for="search-query">Search dta.gov.au</label>
+    <input name="q" id="search-query" type="text" autocomplete="on"/>
+    <input type="submit" value="Search">
+  </form>
 </div>
 
 <section id="search-results" class="search-results" style="display: none;">
-    <h2>Search results</h2>
-    Sorted by relevance
-    <div class="entries">
-    </div>
+  <h2>Search results</h2>
+  Sorted by relevance
+  <div class="entries">
+  </div>
 </section>
 
 {% raw %}
@@ -32,6 +32,8 @@
     </li>
   {{/entries}}
   </ul>
+
 </script>
 {% endraw %}
+
 

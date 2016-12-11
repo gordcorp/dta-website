@@ -1,9 +1,16 @@
+//= require 'vendor/jquery-1.12.4.min'
 
+// Search
+//= require 'vendor/lunr.min'
+//= require 'vendor/mustache'
+//= require 'vendor/date.format'
+//= require 'vendor/URI'
+//= require 'vendor/jquery.lunr.search'
 
-$(document).ready(function(){
-    $('.search-input').focus(function() {
-        $.getJSON( "/search-engine/index.json");
-    });
+$(document).ready(function () {
+
+    $.getJSON("/search-engine/index.json");
+
     // If search-input has value add class that moves it in front of label
     $('#site-search-text').on("propertychange input", function () { // input = ie9+, propertychange < ie9
         element = $(this);
@@ -13,12 +20,16 @@ $(document).ready(function(){
             element.removeClass('has-value');
         }
     });
-    $(function() {
+
+    $(function () {
         $('#search-query').lunrSearch({
             indexUrl: '/search-engine/index.json',   // Url for the .json file containing search index data
-            results : '#search-results',  // selector for containing search results element
-            entries : '.entries',         // selector for search entries containing element (contained within results above)
+            results: '#search-results',  // selector for containing search results element
+            entries: '.entries',         // selector for search entries containing element (contained within results above)
             template: '#search-results-template'  // selector for Mustache.js template
         });
     });
+
 });
+
+
