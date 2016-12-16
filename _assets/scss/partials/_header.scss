@@ -1,11 +1,14 @@
 
 .page-header {
+  background-color: #414141;
+  background-image: none;
+
   a.logo {
     width: 523px;
     height: 130px;
   }
   &__logo {
-    background: url('images/logo_dta_inline.png');
+    background: url('images/logo_dta_inline.svg');
 
     background-size: 100%;
     background-repeat: no-repeat;
@@ -58,6 +61,9 @@
   }
 
   .site-nav {
+    li a {
+      color: $white;
+    }
     clear: left;
 
     @include ie-lte(9) {
