@@ -16,3 +16,11 @@ gem 'rake'
 
 gem 'rack-jekyll'
 gem 'puma'
+
+group :development, :test do
+  gem 'rspec'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+  gem 'capybara'
+  gem 'pry'
+end
