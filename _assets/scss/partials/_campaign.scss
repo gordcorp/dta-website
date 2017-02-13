@@ -1,0 +1,31 @@
+.campaignContainer {
+
+  .left{
+    position: relative;
+    float: left;
+    width: 66%;
+  }
+
+  .right{
+    position: relative;
+    float: right;
+    width: 33%;
+  }
+
+  .fullwidth{
+    position: relative;
+    float: right;
+    width: 100%;
+    clear: both;
+  }
+
+  h2{
+  font-family:Montserrat-Bold;
+  font-size:44px;
+  color:#45c2f0;
+  letter-spacing:0;
+  line-height:52.8px;
+  text-align:left;
+  }
+
+}
