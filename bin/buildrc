@@ -23,7 +23,8 @@ case "${GITBRANCH}" in
     export DTA_SITE_URL="https://dta.apps.staging.digital.gov.au"
     ;;
   ${DEPLOY_BRANCHES})
-    export DTA_SITE_URL="https://dta-website-${GITBRANCH}.apps.staging.digital.gov.au"
+    readonly BRANCHNAME="`basename \"${GITBRANCH}\"`"
+    export DTA_SITE_URL="https://${CIRCLE_PROJECT_REPONAME}-${BRANCHNAME}.apps.staging.digital.gov.au"
     ;;
   *)
     if [[ -n ${CIRCLECI+x} ]]
