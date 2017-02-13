@@ -21,23 +21,26 @@ layout: base
         {% endif %}
 
       <li>
-        <figure>
-          {% if post.thumbnail %}
-          <a href="{{ url }}"><img class="blog-thumbnail" src="{{site.baseurl}}{{ post.thumbnail }}" alt="Read post {{ post.title }}"></a>
-          {% else %}
-          <a href="{{ url }}"><img class="blog-thumbnail" src="{{site.baseurl}}/images/post-thumbnail-placeholder.png" alt="Read post {{ post.title }}"></a>
-          {% endif %}
-        </figure>
+
         <article>
-          <h3>
-            <a href="{{ url }}">{{ post.title }}</a>
-          </h3>
-          <div class="meta">
+          <a href="{{ url }}">
+            <figure>
+              {% if post.thumbnail %}
+              <img class="blog-thumbnail" src="{{site.baseurl}}{{ post.thumbnail }}" alt="Read post {{ post.title }}">
+              {% else %}
+              <img class="blog-thumbnail" src="{{site.baseurl}}/images/post-thumbnail-placeholder.png" alt="Read post {{ post.title }}">
+              {% endif %}
+            </figure>
+            <h3>
+              {{ post.title }}
+            </h3>
+          </a>
+          <div>
             <time datetime="{{ post.date }}">{{ post.date | date: "%-d %b %Y" }}</time>
             {% if post.category contains "blog" %}
-            <a href="{{site.baseurl}}/blog/">Blog</a>
+            <span>Blog</span>
             {% else %}
-            <a href="{{site.baseurl}}/news/">News</a>
+            <span>News</span>
             {% endif %}
             </span>
           </div>
