@@ -1,0 +1,8 @@
+{
+  "name": "dta-website",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "pa11y-ci": "^0.5"
+  }
+}
