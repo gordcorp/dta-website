@@ -12,19 +12,17 @@ machine:
 general:
   artifacts:
     - "_site"
+    - "tmp"
 
 dependencies:
+  pre:
+    - gem install bundler
+    - bundle install
   override:
-    - bin/ciprepare.sh
+    - npm install -g accesslint-cli
+    - gem install accesslint-ci
 
 test:
-  override:
-    - bin/cibuild.sh
-    - bin/ciserve.sh:
-        background: true
-    - bin/citest.sh
-deployment:
-  all:
-    branch: /.*/
-    commands:
-      - bin/cideploy.sh
+  post:
+    - bundle exec jekyll serve --detach
+    - bundle exec accesslint-ci scan http://localhost:4000
